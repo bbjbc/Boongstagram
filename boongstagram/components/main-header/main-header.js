@@ -9,7 +9,7 @@ export default function MainHeader() {
     <header className="flex justify-between items-center px-6 py-8 md:px-[10%] md:py-8">
       <Link
         href="/"
-        className="flex items-center justify-center gap-6 no-underline text-[#ddd6cb] font-extrabold uppercase text-2xl"
+        className="flex items-center justify-center gap-6 no-underline text-[#302f2f] font-extrabold uppercase text-2xl"
       >
         <Image
           src={logoImg}

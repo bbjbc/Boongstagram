@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,16 +24,13 @@
 }
 
 html {
+  margin: 0;
   font-family: "GmarketSans";
-}
-
-* {
-  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: #8b9556;
+  background: #e4d6b4;
 }
 
 .not-found,
