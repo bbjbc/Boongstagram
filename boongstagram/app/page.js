@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </header>
       <main>
-        <section className="flex flex-col text-2xl text-center mx-auto my-8">
+        <section className="flex flex-col text-2xl text-center mx-auto my-8 pb-12">
           <h2 className="text-3xl font-bold">
             최고의 열정을 뽐내는 Boongranii
           </h2>
