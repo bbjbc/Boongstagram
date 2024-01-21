@@ -1,0 +1,56 @@
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.image-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.image-container {
+  display: flex;
+  width: 500px;
+  transition: transform 0.5s ease;
+  margin: 0 auto;
+}
+
+.image-item {
+  width: 100%;
+  height: auto;
+  flex: 0 0 auto;
+  border-radius: 0.75rem;
+  opacity: 1;
+  animation: slide 1s ease-out;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(58, 55, 55, 0.2);
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 8px;
+  transform: translateY(-50%);
+}
+
+.next-button {
+  right: 8px;
+  transform: translateY(-50%);
+}
