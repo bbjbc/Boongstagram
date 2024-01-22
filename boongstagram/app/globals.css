@@ -26,12 +26,14 @@
 html {
   margin: 0;
   height: 100%;
+  width: 100%;
   font-family: "GmarketSans";
 }
 
 body {
   margin: 0;
-  background: #e4d6b4;
+  height: 100%;
+  width: 100%;
 }
 
 .not-found,
@@ -59,5 +61,5 @@ body {
 .error p {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #ddd8d8;
+  color: #e61212;
 }

@@ -20,10 +20,10 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-4 md:justify-start">
-            <Link href="introduce" className="btn btn-warning">
+            <Link href="introduce" className="btn btn-neutral">
               Boong's Intro
             </Link>
-            <Link href="story" className="btn btn-success">
+            <Link href="story" className="btn btn-error">
               Boong's Feed
             </Link>
           </div>
