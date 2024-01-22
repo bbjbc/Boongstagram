@@ -15,7 +15,7 @@ import { MongoClient } from "mongodb";
 
 export async function getStory() {
   const uri =
-    "mongodb+srv://aoo4550:PVKNU0YNANPV098D@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
+    "mongodb+srv://aoo4550:IqgDZvMzH8T9J92b@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
 
   try {
@@ -35,7 +35,7 @@ export async function getStory() {
 
 export async function getStoryDetail(storySlug) {
   const uri =
-    "mongodb+srv://aoo4550:PVKNU0YNANPV098D@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
+    "mongodb+srv://aoo4550:IqgDZvMzH8T9J92b@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
 
   try {
