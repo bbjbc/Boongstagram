@@ -25,6 +25,7 @@
 }
 
 .image-item {
+  border-radius: 0.75rem;
   width: 100%;
   height: auto;
   flex: 0 0 auto;

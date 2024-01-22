@@ -26,7 +26,7 @@ export default function MainHeader() {
 
         <nav className="flex gap-6 text-xl m-0 p-0">
           <ul className="flex">
-            <li>
+            <li key="github">
               <Link
                 href="https://github.com/bbjbc"
                 className="relative inline-block overflow-hidden rounded-full group mr-4"
@@ -35,10 +35,10 @@ export default function MainHeader() {
                 <span className="absolute inset-0 bg-[#ff8a05] opacity-0 group-hover:opacity-40 transition-opacity"></span>
               </Link>
             </li>
-            <li>
+            <li key="story">
               <NavLink href="/story">My Story</NavLink>
             </li>
-            <li>
+            <li key="introduce">
               <NavLink href="/introduce">Introduce</NavLink>
             </li>
           </ul>

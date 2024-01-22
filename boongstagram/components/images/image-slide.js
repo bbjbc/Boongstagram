@@ -45,11 +45,11 @@ export default function ImageSlide({ image, alt }) {
           ))
         ) : (
           <Image
+            key={alt}
             src={image}
             alt={alt}
             width={500}
             height={480}
-            className="rounded-xl"
             className={classes["image-item"]}
           />
         )}
