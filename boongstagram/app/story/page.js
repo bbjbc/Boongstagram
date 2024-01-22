@@ -33,7 +33,7 @@ export default function StoryPage() {
         </p>
         <p className="mt-4">
           <Link
-            href="/story/share"
+            href="/story/upload"
             className="btn btn-ouline btn-warning text-xl"
           >
             나만의 스토리 추가
