@@ -21,10 +21,10 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-4 md:justify-start">
             <Link href="introduce" className="btn btn-neutral">
-              Boong's Intro
+              Boong&apos;s Intro
             </Link>
             <Link href="story" className="btn btn-error">
-              Boong's Feed
+              Boong&apos;s Feed
             </Link>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function Home() {
             <br /> 열정은 매사 500% 이상을 내려고 노력합니다. <br />
             하지만 노력만으로는 성공할 수 없기 때문에 열심히 공부하려고 합니다.
             <br />
-            어디서나 필요로 하는 프론트엔드 개발자가 되도록 노력하겠습니다.🥇{" "}
+            어디서나 필요로 하는 프론트엔드 개발자가 되도록 노력하겠습니다.🥇
             <br />
             No pain, no gain
           </p>
