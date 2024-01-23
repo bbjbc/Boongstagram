@@ -16,7 +16,15 @@ import fs from "fs";
 import { MongoClient } from "mongodb";
 
 import xss from "xss";
-import slugify from "slugify";
+
+const convertDateSlug = (dateStr) => {
+  const date = new Date(dateStr);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
 
 export async function getStory() {
   const uri =
@@ -69,14 +77,14 @@ export async function saveFeed(story) {
     const database = client.db();
     const collection = database.collection("story");
 
-    story.slug = slugify(story.date, { lower: true });
+    story.slug = convertDateSlug(story.date);
     story.summary = xss(story.summary);
 
     const extension = story.image.map((img) => img.name.split(".").pop());
 
     await Promise.all(
       story.image.map(async (img, idx) => {
-        const fileName = `${story.slug}${idx}.${extension[idx]}`;
+        const fileName = `${story.slug}_${idx}.${extension[idx]}`;
 
         const stream = fs.createWriteStream(`public/images/${fileName}`);
         const bufferedImage = await img.arrayBuffer(); // await 추가
