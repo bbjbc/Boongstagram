@@ -1,7 +1,14 @@
+"use client";
+
+import { useFormState } from "react-dom";
+
 import ImagePicker from "@/components/images/image-picker";
 import StoryFormSubmit from "@/components/story/story-form-submit";
+import { uploadStory } from "@/lib/actions";
 
 export default function StoryUploadPage() {
+  const [state, formAction] = useFormState(uploadStory, { message: null });
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <header className="text-center mb-8">
@@ -15,7 +22,7 @@ export default function StoryUploadPage() {
           어떨까요?
         </p>
       </header>
-      <form className="max-w-2xl w-full">
+      <form className="max-w-2xl w-full" action={formAction}>
         <p className="mb-4">
           <label htmlFor="title" className="block text-orange-800 text-lg">
             피드 제목
@@ -53,10 +60,11 @@ export default function StoryUploadPage() {
           ></textarea>
         </p>
         <ImagePicker name="image" />
+        {state.message && <p>{state.message}</p>}
+        <p className="mt-4 mb-10">
+          <StoryFormSubmit />
+        </p>
       </form>
-      <p className="mt-4 mb-10">
-        <StoryFormSubmit />
-      </p>
     </div>
   );
 }
