@@ -54,7 +54,7 @@ export default function ImageSlide({ image, alt }) {
           />
         )}
       </div>
-      {Array.isArray(image) && (
+      {Array.isArray(image) && image.length > 1 && (
         <>
           <button onClick={prevImage} className={classes["prev-button"]}>
             <IoIosArrowDropleft className="size-8" />
