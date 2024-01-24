@@ -7,9 +7,19 @@ export default function StoryFeed({ title, slug, image, date }) {
       <header>
         <div className="relative h-80">
           {Array.isArray(image) ? (
-            <Image src={image[0]} alt={title} fill className="rounded-lg" />
+            <Image
+              src={`https://boongranii-nextjs-boongstagram.s3.ap-northeast-2.amazonaws.com/${image[0]}`}
+              alt={title}
+              fill
+              className="rounded-lg"
+            />
           ) : (
-            <Image src={image} alt={title} fill className="rounded-lg" />
+            <Image
+              src={`https://boongranii-nextjs-boongstagram.s3.ap-northeast-2.amazonaws.com/${image}`}
+              alt={title}
+              fill
+              className="rounded-lg"
+            />
           )}
         </div>
         <div className="p-4 -mb-4">

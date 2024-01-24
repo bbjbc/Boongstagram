@@ -34,7 +34,7 @@ export default function ImageSlide({ image, alt }) {
           image.map((img, index) => (
             <div key={index} className={classes["image-item"]}>
               <Image
-                src={img}
+                src={`https://boongranii-nextjs-boongstagram.s3.ap-northeast-2.amazonaws.com/${img}`}
                 alt={alt}
                 width={500}
                 height={480}
@@ -46,7 +46,7 @@ export default function ImageSlide({ image, alt }) {
         ) : (
           <Image
             key={alt}
-            src={image}
+            src={`https://boongranii-nextjs-boongstagram.s3.ap-northeast-2.amazonaws.com/${image}`}
             alt={alt}
             width={500}
             height={480}
