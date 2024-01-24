@@ -11,7 +11,7 @@
 //   return db.prepare("SELECT * FROM story WHERE slug = ?").get(storySlug);
 // }
 
-import fs from "fs";
+import { S3 } from "@aws-sdk/client-s3";
 
 import { MongoClient } from "mongodb";
 
@@ -67,6 +67,9 @@ export async function getStoryDetail(storySlug) {
 }
 
 export async function saveFeed(story) {
+  const s3 = new S3({
+    region: "ap-northeast-2",
+  });
   const uri =
     "mongodb+srv://aoo4550:IqgDZvMzH8T9J92b@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
@@ -84,21 +87,19 @@ export async function saveFeed(story) {
 
     await Promise.all(
       story.image.map(async (img, idx) => {
-        const fileName = `${story.slug}_${idx}.${extension[idx]}`;
+        const fileName = `${story.slug}_${idx}.${extension}`;
 
-        const stream = fs.createWriteStream(`public/images/${fileName}`);
-        const bufferedImage = await img.arrayBuffer(); // await 추가
+        const bufferedImage = await img.arrayBuffer();
 
-        return new Promise((resolve, reject) => {
-          stream.write(Buffer.from(bufferedImage), (err) => {
-            if (err) {
-              reject(new Error("이미지 저장에 실패했습니다."));
-            } else {
-              story.image[idx] = `/images/${fileName}`;
-              resolve();
-            }
-          });
+        // AWS S3에 이미지 업로드
+        s3.putObject({
+          Bucket: "boongranii-nextjs-boongstagram",
+          Key: fileName,
+          Body: Buffer.from(bufferedImage),
+          ContentType: img.type,
         });
+
+        story.image[idx] = fileName;
       })
     );
 
