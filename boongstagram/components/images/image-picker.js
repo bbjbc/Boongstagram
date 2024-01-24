@@ -7,10 +7,6 @@ export default function ImagePicker({ name }) {
   const [pickedImages, setPickedImages] = useState([]);
   const imageInput = useRef();
 
-  const imageClickHandler = () => {
-    imageInput.current.click();
-  };
-
   const imageChangeHandler = (event) => {
     const files = event.target.files;
 
@@ -36,7 +32,7 @@ export default function ImagePicker({ name }) {
         {pickedImages.map((image, index) => (
           <div
             key={index}
-            className="w-32 h-32 border-2 border-gray-700 flex justify-center items-center text-center relative"
+            className="w-32 h-32 mb-4 border-2 border-gray-700 flex justify-center items-center text-center relative"
           >
             <Image src={image.preview} alt={`이미지 ${index + 1}`} fill />
           </div>
@@ -46,16 +42,18 @@ export default function ImagePicker({ name }) {
         type="file"
         id={name}
         name={name}
+        className="hidden"
         onChange={imageChangeHandler}
         ref={imageInput}
         accept="image/jpg, image/png, image/jpeg"
-        className="hidden"
         multiple
-        required
       />
-      <button onClick={imageClickHandler} className="btn btn-error mt-2">
-        사진 고르기
-      </button>
+      <label
+        htmlFor={name}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg cursor-pointer"
+      >
+        이미지 고르기
+      </label>
     </div>
   );
 }
