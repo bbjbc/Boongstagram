@@ -17,7 +17,7 @@ import { MongoClient } from "mongodb";
 
 import xss from "xss";
 
-const mongodbPassword = process.env.MONGODB_PW;
+const mongodbPassword = MONGODB_PW;
 const mongodbURI = `mongodb+srv://aoo4550:${mongodbPassword}@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority`;
 
 const convertDateSlug = (dateStr) => {
