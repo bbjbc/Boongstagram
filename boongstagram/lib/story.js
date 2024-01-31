@@ -17,6 +17,9 @@ import { MongoClient } from "mongodb";
 
 import xss from "xss";
 
+const mongodbPassword = process.env.MONGODB_PW;
+const mongodbURI = `mongodb+srv://aoo4550:${mongodbPassword}@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority`;
+
 const convertDateSlug = (dateStr) => {
   const date = new Date(dateStr);
   const year = date.getFullYear();
@@ -27,8 +30,7 @@ const convertDateSlug = (dateStr) => {
 };
 
 export async function getStory() {
-  const uri =
-    "mongodb+srv://aoo4550:IqgDZvMzH8T9J92b@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
+  const uri = mongodbURI;
   const client = new MongoClient(uri);
 
   try {
@@ -47,8 +49,7 @@ export async function getStory() {
 }
 
 export async function getStoryDetail(storySlug) {
-  const uri =
-    "mongodb+srv://aoo4550:IqgDZvMzH8T9J92b@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
+  const uri = mongodbURI;
   const client = new MongoClient(uri);
 
   try {
@@ -70,8 +71,7 @@ export async function saveFeed(story) {
   const s3 = new S3({
     region: "ap-northeast-2",
   });
-  const uri =
-    "mongodb+srv://aoo4550:IqgDZvMzH8T9J92b@cluster0.u8voidr.mongodb.net/story?retryWrites=true&w=majority";
+  const uri = mongodbURI;
   const client = new MongoClient(uri);
 
   try {
